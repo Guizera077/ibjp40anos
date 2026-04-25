@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IBJP 40 Anos — Acesso</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    min-height: 100vh;
+    background: #1a2e22;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    padding: 20px;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(180,145,60,0.12) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .card {
+    background: #243d2e;
+    border: 1px solid rgba(180,145,60,0.3);
+    border-radius: 16px;
+    padding: 40px 36px;
+    width: 100%;
+    max-width: 380px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+
+  .emblem {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 2px solid rgba(180,145,60,0.6);
+    background: rgba(180,145,60,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cinzel', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #c9a84c;
+    margin: 0 auto 20px;
+  }
+
+  h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 18px;
+    color: #e8d5a0;
+    text-align: center;
+    margin-bottom: 4px;
+  }
+
+  .sub {
+    font-size: 12px;
+    color: #8aaa90;
+    text-align: center;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+
+  .field { margin-bottom: 16px; }
+
+  label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    color: #8aaa90;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+
+  input {
+    width: 100%;
+    background: rgba(0,0,0,0.25);
+    border: 1px solid rgba(180,145,60,0.2);
+    border-radius: 8px;
+    padding: 11px 14px;
+    color: #e8e0cc;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  input:focus { border-color: #c9a84c; }
+
+  .error {
+    background: rgba(180,60,60,0.15);
+    border: 1px solid rgba(180,60,60,0.3);
+    border-radius: 8px;
+    padding: 10px 14px;
+    color: #f08080;
+    font-size: 13px;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  button {
+    width: 100%;
+    background: linear-gradient(135deg, #b8973e, #d4aa52);
+    color: #1a2e22;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 8px;
+    letter-spacing: 0.5px;
+  }
+
+  button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(180,145,60,0.35);
+  }
+
+  .divider {
+    height: 1px;
+    background: rgba(180,145,60,0.15);
+    margin: 28px 0 18px;
+  }
+
+  .footer {
+    font-size: 11px;
+    color: #5a7a60;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="emblem">40</div>
+  <h1>IBJP 40 Anos</h1>
+  <p class="sub">Painel da Equipe de Mídia</p>
+
+  {% if error %}
+  <div class="error">⚠ {{ error }}</div>
+  {% endif %}
+
+  <form method="POST">
+    <div class="field">
+      <label>Usuário</label>
+      <input type="text" name="usuario" placeholder="Digite seu usuário" autocomplete="off" required>
+    </div>
+    <div class="field">
+      <label>Senha</label>
+      <input type="password" name="senha" placeholder="••••••••" required>
+    </div>
+    <button type="submit">Entrar no Painel →</button>
+  </form>
+
+  <div class="divider"></div>
+  <p class="footer">Igreja Batista Jardim Paulistano · Campina Grande</p>
+</div>
+</body>
+</html>
